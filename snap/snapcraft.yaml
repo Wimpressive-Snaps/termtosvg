@@ -1,0 +1,21 @@
+name: termtosvg
+base: core18
+version: 'git'
+summary: Record terminal sessions as SVG animations
+description: |
+  termtosvg is a Unix terminal recorder written in Python that renders
+  your command line sessions as standalone SVG animations.
+
+grade: stable
+confinement: classic
+
+parts:
+  termtosvg:
+    plugin: python
+    source: .
+
+apps:
+  termtosvg:
+    command: python3 $SNAP/bin/termtosvg
+    environment: 
+      PYTHONPATH: $PYTHONPATH:$SNAP/lib/python3.6/site-packages
